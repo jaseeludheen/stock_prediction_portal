@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'accounts',
     'api',
     "corsheaders",
+    'rest_framework_simplejwt',
 
 ]
 
@@ -132,5 +133,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Domains permitted to access this API via CORS
 CORS_ALLOWED_ORIGINS = [
-   config("CORS_ORIGIN")
+   config('CORS_ORIGIN')
 ]
+
+
+REST_FRAMEWORK = {
+
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+
+}

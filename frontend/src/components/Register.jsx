@@ -12,18 +12,18 @@ const Register = () => {
     const [errors, setErrors] = useState({})
     const [success, setSuccess] = useState(false)
     const [loading, setLoading] = useState(false)
+    
 
+    const BASE_URL = import.meta.env.VITE_BASE_URL;
 
     const handleRegistration = async (e) => {
         e.preventDefault();
         setLoading(true);
 
-        const userData = {
-            username, email, password
-        }
+        const userData = {username, email, password}
 
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/v1/register/', userData)
+            const response = await axios.post(`${BASE_URL}/api/v1/register/`, userData)
             console.log('response.data==>', response.data)
             console.log('Registration Successful')
             setErrors({});
@@ -57,6 +57,7 @@ const Register = () => {
                     </div>
 
                     {success && <div className='alert alert-success'>Registrtion Successful</div>}
+                    
                     {loading ? (
                         <button type='submit' className='btn btn-info d-block mx-auto' disabled><FontAwesomeIcon icon={faSpinner} spin /> Please wait...</button>
                     ) : (
