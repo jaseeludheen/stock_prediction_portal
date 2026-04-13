@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
-import { AuthContext } from '../AuthProvider'
+import { AuthContext } from '../AuthProvider'   
 
 
 const Login = () => {
@@ -24,20 +24,22 @@ const Login = () => {
       setLoading(true)
 
       const userData = {username, password}
-      console.log('user data =>', userData);
+    //console.log('user data =>', userData);
 
       try{
         const response = await axios.post(`${BASE_URL}/api/v1/token/`, userData) 
-        console.log('response.data==>', response.data);
+      //console.log('response.data==>', response.data);    // response - access and refresh token
 
         // Save the JWT access token (short-lived) to localStorage
         localStorage.setItem('accessToken', response.data.access)
         // Save the JWT refresh token (long-lived) to localStorage
-        localStorage.setItem('refreshToken', response.data.access)
+        localStorage.setItem('refreshToken', response.data.refresh)
 
         console.log('login successful')
         setIsLoggedIn(true)
-        navigate('/')
+
+        navigate('/dashboard')  // Redirect to the dashboard after successful login
+
       }catch(error) {
         console.error('Invalid Credentials')
         setError('Invalid Credentials')

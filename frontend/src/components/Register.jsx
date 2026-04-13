@@ -16,14 +16,16 @@ const Register = () => {
 
     const BASE_URL = import.meta.env.VITE_BASE_URL;
 
-    const handleRegistration = async (e) => {
-        e.preventDefault();
+    const handleRegistration = async (e) => {     
+        e.preventDefault();   // prevent the default behaviour of the form submission, which is to reload the page. By calling e.preventDefault(), we can handle the form submission with our own logic, such as sending an API request to register the user without refreshing the page.
         setLoading(true);
 
-        const userData = {username, email, password}
+        const userData = {
+            username, email, password
+        }
 
         try {
-            const response = await axios.post(`${BASE_URL}/api/v1/register/`, userData)
+            const response = await axios.post(`${BASE_URL}/api/v1/register/`, userData)   // await is used to wait for the response from the server before proceeding to the next line of code. This allows us to handle the response data or any errors that may occur during the registration process. The response variable will contain the data returned by the server, which we can use to provide feedback to the user or perform any necessary actions after a successful registration.
             console.log('response.data==>', response.data)
             console.log('Registration Successful')
             setErrors({});
@@ -56,8 +58,10 @@ const Register = () => {
                         <small>{errors.password && <div className='text-danger'>{errors.password}</div>}</small>                    
                     </div>
 
-                    {success && <div className='alert alert-success'>Registrtion Successful</div>}
+
+                    {success && <div className='alert alert-success'>Registration Successful</div>}  
                     
+
                     {loading ? (
                         <button type='submit' className='btn btn-info d-block mx-auto' disabled><FontAwesomeIcon icon={faSpinner} spin /> Please wait...</button>
                     ) : (

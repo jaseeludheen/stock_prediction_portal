@@ -14,7 +14,7 @@ const Main = () => {
             <p className='text-light lead'>
                 Welcome to the Stock Prediction Portal. This platform leverages advanced machine learning algorithms to provide accurate stock price predictions. Whether you're an investor, trader, or financial enthusiast, our portal offers valuable insights to help you make informed decisions in the stock market.
             </p>
-            <Button text='Login' class='btn-outline-danger' />
+            <Button text='Explore Now' class='btn-info' url="/dashboard" />
 
         </div>
 
