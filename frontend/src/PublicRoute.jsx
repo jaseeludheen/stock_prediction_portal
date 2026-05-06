@@ -8,7 +8,8 @@ const PublicRoute = ({children}) => {
   return !isLoggedIn ? (
     children
   ) : (
-    <Navigate to="/dashboard" />  // redirect to dashboard if already authenticated
+    // <Navigate to="/dashboard" />  // redirect to dashboard if already authenticated
+    <Navigate to="/dashboard_new" />  // redirect to dashboard if already authenticated
   )
 }
 

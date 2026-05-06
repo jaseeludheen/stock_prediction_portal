@@ -10,7 +10,8 @@ const PrivateRoute = ({children}) =>  {
   return isLoggedIn ? (
     children
   ) : (
-    <Navigate to="/login" />  // redirect to login page if not authenticated
+    // <Navigate to="/login" />  // redirect to login page if not authenticated
+    <Navigate to="/login_new" />  // redirect to login page if not authenticated
   )
 }
 
