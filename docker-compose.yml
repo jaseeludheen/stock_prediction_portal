@@ -8,8 +8,8 @@ services:
 
   backend:
     build: ./backend
-    ports:
-      - "8000:8000"
+#   ports:
+#     - "8000:8000"
     env_file:
       - ./backend/.env.docker
     depends_on:
@@ -26,11 +26,22 @@ services:
     build:
       context: ./frontend
       args:
-#        VITE_BACKEND_BASE_API: "http://127.0.0.1:8000/api/v1"
-        VITE_BACKEND_BASE_API: "http://104.248.58.250/api/v1"
-    ports:
-      - "5173:80"
+#       VITE_BACKEND_BASE_API: "http://127.0.0.1:8000/api/v1"
+#       VITE_BACKEND_BASE_API: "http://104.248.58.250/api/v1"
+        VITE_BACKEND_BASE_API: "/api/v1"
+#   ports:
+#     - "5173:80"
     depends_on:
+      - backend
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - frontend
       - backend
 
 
