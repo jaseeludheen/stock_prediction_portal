@@ -170,5 +170,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
-    'http://104.248.58.250:5173'
+    'http://104.248.58.250:5173',
+    'http://jd-jd.online',
+    'https://jd-jd.online',
+
 ]

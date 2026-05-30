@@ -1,4 +1,4 @@
-# Stage 1: Build
+frontend/Dockerfile# Stage 1: Build
 FROM node:18 AS build
 
 WORKDIR /app

@@ -190,3 +190,4 @@ sketch
 
 backend/.env.docker
 backend/.env.production
+nginx/default.conf
