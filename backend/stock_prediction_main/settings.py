@@ -175,3 +175,7 @@ CORS_ALLOWED_ORIGINS = [
     'https://jd-jd.online',
 
 ]
+
+
+
+CSRF_TRUSTED_ORIGINS = [origin.strip() for origin in os.getenv('CSRF_TRUSTED_ORIGINS', '').split(',') if origin.strip()]
