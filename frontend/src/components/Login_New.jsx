@@ -4,6 +4,7 @@ import { faSpinner, faRightToBracket } from '@fortawesome/free-solid-svg-icons'
 // import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../AuthProvider'
+import axiosInstance from '../axiosInstance'  // add this line
 
 const Login_New = () => {
   const [username, setUsername] = useState('')
