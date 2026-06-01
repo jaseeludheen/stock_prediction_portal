@@ -31,6 +31,7 @@ services:
 #       VITE_BACKEND_BASE_API: "http://127.0.0.1:8000/api/v1"
 #       VITE_BACKEND_BASE_API: "http://104.248.58.250/api/v1"
         VITE_BACKEND_BASE_API: "/api/v1"
+        VITE_BASE_URL: ""
 #   ports:
 #     - "5173:80"
     depends_on:

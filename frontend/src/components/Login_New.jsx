@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner, faRightToBracket } from '@fortawesome/free-solid-svg-icons'
-import axios from 'axios'
+// import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../AuthProvider'
 
@@ -12,14 +12,17 @@ const Login_New = () => {
   const [error, setError] = useState('')
   const navigate = useNavigate()
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
-  const BASE_URL = import.meta.env.VITE_BASE_URL;
+
+  // const BASE_URL = import.meta.env.VITE_BASE_URL;
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true)
     const userData = { username, password }
     try {
-      const response = await axios.post(`${BASE_URL}/api/v1/token/`, userData)
+      // const response = await axios.post(`${BASE_URL}/api/v1/token/`, userData)
+      const response = await axiosInstance.post('/token/', userData)
+
       localStorage.setItem('accessToken', response.data.access)
       localStorage.setItem('refreshToken', response.data.refresh)
       console.log('login successful')

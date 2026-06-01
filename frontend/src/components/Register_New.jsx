@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
+import axiosInstance from '../axiosInstance'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner, faUserPlus } from '@fortawesome/free-solid-svg-icons'
 
@@ -11,14 +12,16 @@ const Register_New = () => {
   const [success, setSuccess] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  const BASE_URL = import.meta.env.VITE_BASE_URL;
+  // const BASE_URL = import.meta.env.VITE_BASE_URL;
 
   const handleRegistration = async (e) => {
     e.preventDefault();
     setLoading(true);
     const userData = { username, email, password }
     try {
-      const response = await axios.post(`${BASE_URL}/api/v1/register/`, userData)
+      // const response = await axios.post(`${BASE_URL}/api/v1/register/`, userData)
+      const response = await axiosInstance.post('/register/', userData)
+
       console.log('response.data==>', response.data)
       console.log('Registration Successful')
       setErrors({});
